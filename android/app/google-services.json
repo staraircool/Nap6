@@ -1,0 +1,37 @@
+{
+  "project_info": {
+    "project_number": "183050748282",
+    "firebase_url": "https://nap-networks.firebaseio.com",
+    "project_id": "nap-networks",
+    "storage_bucket": "nap-networks.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "android_client_info": {
+          "package_name": "com.napnetworks.app",
+          "certificate_hash": "335A21E843D7E3C8F51C7034BAF6D6B602F4D58D"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "183050748282-5oakepmh0cvdc0riltmui6n6bcifhhac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "183050748282-5oakepmh0cvdc0riltmui6n6bcifhhac.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
+
