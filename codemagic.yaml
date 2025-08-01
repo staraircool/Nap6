@@ -1,18 +1,11 @@
 workflows:
-  react-native-android:
-    name: React Native Android
+  react-native-android-debug:
+    name: React Native Android Debug Build
     max_build_duration: 120
     instance_type: mac_mini_m1
-    integrations:
-      app_store_connect: codemagic
     environment:
-      android_signing:
-        - keystore_reference
-      groups:
-        - google_play
       vars:
         PACKAGE_NAME: "com.napnetworks.app"
-        GOOGLE_PLAY_TRACK: internal
       node: 18.17.0
       xcode: latest
       cocoapods: default
@@ -26,19 +19,10 @@ workflows:
       - name: Install CocoaPods dependencies
         script: |
           cd ios && pod install
-      - name: Set up keystore
-        script: |
-          echo $CM_KEYSTORE | base64 --decode > /tmp/keystore.keystore
-          cat >> "$CM_BUILD_DIR/android/key.properties" <<EOF
-          storePassword=$CM_KEYSTORE_PASSWORD
-          keyPassword=$CM_KEY_PASSWORD
-          keyAlias=$CM_KEY_ALIAS
-          storeFile=/tmp/keystore.keystore
-          EOF
-      - name: Build Android APK
+      - name: Build Android Debug APK
         script: |
           cd android
-          ./gradlew assembleRelease
+          ./gradlew assembleDebug
     artifacts:
       - android/app/build/outputs/**/*.apk
       - android/app/build/outputs/**/mapping.txt
@@ -46,8 +30,7 @@ workflows:
     publishing:
       email:
         recipients:
-          - user@example.com
+          - your_email@example.com # Replace with your email to receive build notifications
         notify:
           success: true
-          failure: false
-
+          failure: true
