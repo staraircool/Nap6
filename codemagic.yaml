@@ -1,5 +1,5 @@
 workflows:
-  react-native-android-debug:
+  react-native-android:
     name: React Native Android Debug Build
     max_build_duration: 120
     instance_type: mac_mini_m1
